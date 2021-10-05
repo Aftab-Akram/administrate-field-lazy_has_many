@@ -1,0 +1,35 @@
+<div class="field-unit__label">
+  <%= f.label field.attribute, for: "#{f.object_name}_#{field.attribute_key}" %>
+</div>
+<div class="field-unit__field">
+  <%= f.select(field.attribute_key, nil, {}, multiple: true) do %>
+    <%= options_for_select(field.associated_resource_options, field.selected_options) %>
+  <% end %>
+</div>
+
+<script>
+ $(document).ready(function() {
+    let xhr;
+    let select_filed = $("#<%= field.custom_attribute_id%>").selectize({
+      load: function (query, callback) {
+        if (!query.length) return callback();
+        $.ajax({
+          url: "<%= field.data_url%>",
+          type: "GET",
+          dataType: "json",
+          data: {
+            search: query,
+            page_limit: "<%= field.result_limit%>"
+          },
+          error: function () {
+            callback();
+          },
+          success: function (res) {
+            callback(res);
+          },
+        });
+      },
+    });
+});
+</script>
+
