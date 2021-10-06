@@ -27,16 +27,16 @@ Or install it yourself as:
 You need to have a route that does the following:
 1. yields an array of objects with at least the value and text you want to show i.e `[{value: 1, text: option1}]`
 2. Respond to `search` attribute
-3. Limit result `page_limit`
+3. Limit result `result_limit`
 
 The best way is to re-use everything administrate search feature.
 You must define this action in administrate related entity  controller
 ```ruby
      def books_data
-      page_limit = params[:page_limit] || 10
+      result_limit = params[:result_limit] || 10
       search_term = params[:search].to_s.strip
       resources = Administrate::Search.new(scoped_resource, dashboard_class, search_term).run
-      resources = resources.limit(page_limit).map do |resource|
+      resources = resources.limit(result_limit).map do |resource|
         { value: resource.id, text: dashboard.display_resource(resource) }
       end
       if resources.blank?
@@ -50,7 +50,8 @@ Above example action that could work for every model, but you can change the imp
 The only catch is it must return the comply with above conditions.
 
 ### Field
-Field is pretty easy and it does support all the features of administrate has_many field. You can provide all has_many options as per your use case
+Field is pretty easy and it does support all the features of administrate has_many field. You can provide all has_many options as per your use case.
+The only require attribute is `action` which must be rails path helper.
 ```ruby
 require "administrate/base_dashboard"
 
@@ -74,7 +75,7 @@ class PostDashboard < Administrate::BaseDashboard
   # ...
 end
 ```
-
+i.e `result_limit` will the maximum result the field will post to action endpoint
 
 ## Contributing
 
