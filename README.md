@@ -75,7 +75,7 @@ class PostDashboard < Administrate::BaseDashboard
   # ...
 end
 ```
-i.e `result_limit` will the maximum result the field will post to action endpoint
+i.e `result_limit` attribute maximum result value the field will post to action endpoint with `search` paramter
 
 ## Contributing
 
