@@ -31,8 +31,8 @@ module Administrate
         data.map { |v| display_candidate_resource(v) }
       end
 
-      def data_url
-        raise StandardError.new 'data_url is missing' if options[:action].blank?
+      def action
+        raise StandardError.new 'action is missing' if options[:action].blank?
 
         Rails.application.routes.url_helpers.send(options[:action])
       end

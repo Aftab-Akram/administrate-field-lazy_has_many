@@ -14,7 +14,7 @@
       load: function (query, callback) {
         if (!query.length) return callback();
         $.ajax({
-          url: "<%= field.data_url%>",
+          url: "<%= field.action%>",
           type: "GET",
           dataType: "json",
           data: {
