@@ -1,6 +1,6 @@
 # Administrate::Field::LazyHasMany
 
-[![Gem Version](https://badge.fury.io/rb/administrate-field-lazy_has_many)](http://badge.fury.io/rb/administrate-field-lazy_has_many) [![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT)
+[![Gem Version](https://badge.fury.io/rb/administrate-field-lazy_has_many.png)](http://badge.fury.io/rb/administrate-field-lazy_has_many) [![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT)
 
 An input field that shows search results of has many association, lazily from a custom endpoint.
 
