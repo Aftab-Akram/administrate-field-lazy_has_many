@@ -1,4 +1,26 @@
-/*
-*= require_self
-*= require_tree .
-*/
+.selectize-control::before{
+  -moz-transition: opacity 0.2s;
+  -webkit-transition: opacity 0.2s;
+  transition: opacity 0.2s;
+  content: " ";
+  z-index: 2;
+  position: absolute;
+  display: block;
+  top: 50%;
+  right: 34px;
+  width: 16px;
+  height: 16px;
+  margin: -8px 0 0 0;
+  border: 10px solid #f3f3f3;
+  border-top: 10px solid #5e5858;
+  border-radius: 50%;
+  opacity: 0;
+  animation: spin 2s linear infinite;
+}
+.selectize-control.loading::before{
+opacity: 0.4;
+}
+@keyframes spin {
+0% { transform: rotate(0deg); }
+100% { transform: rotate(360deg); }
+}

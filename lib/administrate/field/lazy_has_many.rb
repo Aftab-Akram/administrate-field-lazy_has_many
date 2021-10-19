@@ -9,7 +9,7 @@ module Administrate
       include LazyHasManyVersion
 
       class Engine < ::Rails::Engine
-        Administrate::Engine.add_stylesheet 'administrate-field-lazy_belongs_to/application'
+        Administrate::Engine.add_stylesheet 'administrate-field-lazy_has_many/application'
 
         isolate_namespace Administrate
       end
